@@ -34,9 +34,14 @@ export function AppLauncher(id) {
 
 	appRoot.innerHTML = "";
 	const bannerMusic = document.getElementById("bannerMusic");
+	const menuMusic = document.getElementById("wiiMenuMusic");
 	if (bannerMusic) {
 		bannerMusic.pause();
 		bannerMusic.currentTime = 0;
+	}
+	if (menuMusic && localStorage.getItem("returnToMenu") === "true") {
+		menuMusic.pause();
+		menuMusic.currentTime = 0;
 	}
 	render(<Component />, appRoot);
 }

@@ -13,11 +13,18 @@ export function WiiChannelFull({ chn, mode }) {
 
 	const banner = mode === "widescreen" ? chn?.WSbanner : chn?.SDbanner;
 
+	const mus = document.getElementById("wiiMenuMusic");
+
+	if ( mus ) {
+		mus.pause();
+	}
+
 	return (
 		<div className="w-full h-full flex flex-col z-96">
 			<WiiPlayAudio
 				audioFile={chn?.musicFile || ""}
 				volume={volume}
+				loop={true}
 				id="bannerMusic"
 			/>
 

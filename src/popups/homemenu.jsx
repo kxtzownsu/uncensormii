@@ -12,6 +12,10 @@ export function HomeMenu() {
 		};
 
 		window.addEventListener("keydown", handler);
+		const mus = document.getElementById("wiiMenuMusic");
+		if ( mus ) {
+			mus.pause();
+		}
 		return () => window.removeEventListener("keydown", handler);
 	}, []);
 
@@ -20,6 +24,7 @@ export function HomeMenu() {
 	const close = () => setVisible(false);
 
 	const returnToMenu = () => {
+		localStorage.setItem("returnToMenu", "true");
 		location.reload();
 	};
 
