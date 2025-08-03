@@ -144,7 +144,7 @@ export function Setup() {
 							{texts.sysBkndSplash.map((line, i) => (
 								<p
 									key={i}
-									className="text-1xl sm:text-2xl lg:text-3xl xl:text-4xl text-center"
+									className="text-xs sm:text-sm lg:text-base xl:text-base flex-shrink-0 text-center"
 								>
 									{line}
 								</p>
