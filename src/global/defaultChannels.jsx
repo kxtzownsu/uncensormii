@@ -17,6 +17,7 @@ export const defaultChannels = [
 		WSbanner: "/assets/nintendo/chn/example/bannerWS.png",
 		SDbanner: "/assets/nintendo/chn/example/bannerSD.png",
 		fsimg: true, // take up entire channel space for image, excluding border
+		loop: false,
 	},
 	{
 		id: "proxy",
@@ -27,5 +28,6 @@ export const defaultChannels = [
 		WSbanner: "/assets/nintendo/chn/proxy/bannerWS.png",
 		SDbanner: "/assets/nintendo/chn/proxy/bannerSD.png",
 		fsimg: true,
+		loop: true,
 	},
 ];

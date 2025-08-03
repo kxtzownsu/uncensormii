@@ -24,7 +24,7 @@ export function WiiChannelFull({ chn, mode }) {
 			<WiiPlayAudio
 				audioFile={chn?.musicFile || ""}
 				volume={volume}
-				loop={true}
+				loop={chn?.loop}
 				id="bannerMusic"
 			/>
 
