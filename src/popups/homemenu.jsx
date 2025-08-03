@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { WiiButton } from "../menuAPI/WiiButton.jsx";
+import { WiiPlayAudio } from "../menuAPI/WiiAudio";
 
 export function HomeMenu() {
 	const [visible, setVisible] = useState(false);
@@ -21,7 +22,11 @@ export function HomeMenu() {
 
 	if (!visible) return null;
 
-	const close = () => setVisible(false);
+	const close = () => {
+		const close = new Audio('/assets/nintendo/audio/wiimenu/NoA_HomeClose.wav');
+		close.play();
+		setVisible(false);
+	}
 
 	const returnToMenu = () => {
 		localStorage.setItem("returnToMenu", "true");
@@ -32,6 +37,11 @@ export function HomeMenu() {
 		<div class="fixed inset-0 z-999 w-screen h-screen bg-[#1e1e2e80] text-white flex flex-col font-wiimain">
 			<div class="absolute h-16 flex justify-between items-center px-6 bg-black w-full rounded">
 				<h1 class="text-xl font-bold">HOME Menu</h1>
+				<WiiPlayAudio
+					audioFile="/assets/nintendo/audio/wiimenu/NoA_HomeOpen.wav"
+					volume={1}
+					id="homeMenuOpen"
+				/>
 				<WiiButton
 					rounded
 					onClick={close}
