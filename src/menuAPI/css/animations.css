@@ -12,3 +12,18 @@
 	transform-style: preserve-3d;
 	backface-visibility: visible;
 }
+
+.font-wiimain {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.font-wiimain.startFadeOut {
+  opacity: 0;
+  transition: none;
+}
+
+.font-wiimain.fade-out {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}

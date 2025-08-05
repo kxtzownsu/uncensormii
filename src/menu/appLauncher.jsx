@@ -1,6 +1,7 @@
 import { render } from "preact";
 import { WiiChannel_Example } from "./channels/example.jsx";
 import { WiiChannel_Proxy } from "./channels/proxy.jsx";
+import { wiiPlayAudio } from "../menuAPI/WiiAudio";
 
 const channelComponents = {
 	example: WiiChannel_Example,
@@ -14,6 +15,8 @@ export function AppLauncher(id) {
 		return;
 	}
 
+	wiiPlayAudio({ audioFile: "/assets/nintendo/audio/NoA_ding.mp3", id: "wiiMenuDing" });
+
 	const Component = channelComponents[id.toLowerCase()];
 	const appRoot = document.querySelector("wiiapp");
 
@@ -25,6 +28,11 @@ export function AppLauncher(id) {
 	const parent = appRoot.closest(".font-wiimain");
 	if (parent) {
 		parent.classList.remove("hidden");
+		parent.classList.add("startFadeOut");
+		setTimeout(() => {
+			parent.classList.remove("startFadeOut");
+			parent.classList.add("fade-out");
+		}, 10);
 	}
 
 	if (!Component) {
@@ -32,16 +40,28 @@ export function AppLauncher(id) {
 		return;
 	}
 
-	appRoot.innerHTML = "";
-	const bannerMusic = document.getElementById("bannerMusic");
-	const menuMusic = document.getElementById("wiiMenuMusic");
-	if (bannerMusic) {
-		bannerMusic.pause();
-		bannerMusic.currentTime = 0;
-	}
-	if (menuMusic && localStorage.getItem("returnToMenu") === "true") {
-		menuMusic.pause();
-		menuMusic.currentTime = 0;
-	}
-	render(<Component />, appRoot);
+	setTimeout(() => {
+		appRoot.innerHTML = "";
+		const bannerMusic = document.getElementById("bannerMusic");
+		const menuMusic = document.getElementById("wiiMenuMusic");
+		const menuStart = document.getElementById("wiiMenuStartup");
+		const menuDing = document.getElementById("wiiMenuDing");
+		if (bannerMusic) {
+			bannerMusic.pause();
+			bannerMusic.currentTime = 0;
+		}
+		if (menuMusic && localStorage.getItem("returnToMenu") === "true") {
+			menuMusic.pause();
+			menuMusic.currentTime = 0;
+		}
+		if (menuStart) {
+			menuStart.pause();
+			menuStart.remove();
+		}
+		if (menuDing) {
+			menuDing.pause();
+			menuDing.remove();
+		}
+		render(<Component />, appRoot);
+	}, 610);
 }
