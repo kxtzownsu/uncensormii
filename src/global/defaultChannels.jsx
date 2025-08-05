@@ -3,7 +3,7 @@ export const defaultChannels = [
 		id: "disc",
 		name: "Disc Channel",
 		icon: "/assets/nintendo/chn/disc/icon.svg", // if the icon works in both SD and WS, use icon instead of WSicon/SDicon
-		musicFile: "",
+		musicFile: "/assets/nintendo/chn/disc/banner.wav",
 		WSbanner: "/assets/nintendo/chn/disc/bannerWS.png",
 		SDbanner: "/assets/nintendo/chn/disc/bannerSD.png",
 		rotating: true,
