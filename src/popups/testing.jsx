@@ -70,7 +70,7 @@ export function TestingMenu({ visible, onClose }) {
 				onMouseDown={onMouseDown}
 				class="cursor-move px-4 py-2 font-bold text-lg border-b border-blue-300/25 flex justify-between items-center rounded-t-lg bg-blue-400/40"
 			>
-				<span>thug uncensormii menu</span>
+				<span>UncensorMii DEBUG</span>
 				<button
 					onClick={onClose}
 					class="bg-transparent border-none text-white font-bold text-xl cursor-pointer leading-none"

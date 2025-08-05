@@ -28,6 +28,6 @@ export const defaultChannels = [
 		WSbanner: "/assets/nintendo/chn/proxy/bannerWS.png",
 		SDbanner: "/assets/nintendo/chn/proxy/bannerSD.png",
 		fsimg: true,
-		loop: true,
+		loop: false,
 	},
 ];
