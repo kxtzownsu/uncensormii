@@ -40,7 +40,7 @@ export function HomeMenu() {
 
 	return (
 		<div class="fixed inset-0 z-999 w-screen h-screen bg-[#1e1e2e80] text-white flex flex-col font-wiimain">
-			<div class="absolute h-16 flex justify-between items-center px-6 bg-black w-full rounded">
+			<div class="absolute h-16 flex justify-between items-center px-6 bg-black w-full">
 				<h1 class="text-xl font-bold">HOME Menu</h1>
 				<WiiPlayAudio
 					audioFile="/assets/nintendo/audio/wiimenu/NoA_HomeOpen.wav"
