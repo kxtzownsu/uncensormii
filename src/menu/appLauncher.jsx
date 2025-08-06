@@ -15,7 +15,10 @@ export function AppLauncher(id) {
 		return;
 	}
 
-	wiiPlayAudio({ audioFile: "/assets/nintendo/audio/NoA_ding.mp3", id: "wiiMenuDing" });
+	wiiPlayAudio({
+		audioFile: "/assets/nintendo/audio/NoA_ding.mp3",
+		id: "wiiMenuDing",
+	});
 
 	const Component = channelComponents[id.toLowerCase()];
 	const appRoot = document.querySelector("wiiapp");

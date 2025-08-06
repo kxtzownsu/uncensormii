@@ -4,7 +4,12 @@ import { WiiChannelLookup } from "./WiiChannelLookup";
 import "./css/channel.css";
 import "./css/animations.css";
 
-export function WiiChannel({ id, enabled = false, mode = "widescreen", fsimg = false }) {
+export function WiiChannel({
+	id,
+	enabled = false,
+	mode = "widescreen",
+	fsimg = false,
+}) {
 	const audioRef = useRef(null);
 	const hoverTimeoutRef = useRef(null);
 	const chn = WiiChannelLookup(id);
@@ -53,11 +58,17 @@ export function WiiChannel({ id, enabled = false, mode = "widescreen", fsimg = f
 
 	return (
 		<div className="relative flex flex-col items-center group">
-			<audio ref={audioRef} src="/assets/nintendo/audio/wiimenu/NoA_HoverChannel.wav" preload="auto" />
+			<audio
+				ref={audioRef}
+				src="/assets/nintendo/audio/wiimenu/NoA_HoverChannel.wav"
+				preload="auto"
+			/>
 
 			<div
 				className={`relative bg-white border-[#aaa] border-4 rounded-2xl transition-colors ${aspectClass} ${
-					enabled ? "group-hover:border-blue-400 cursor-pointer" : "border-[#aaa]"
+					enabled
+						? "group-hover:border-blue-400 cursor-pointer"
+						: "border-[#aaa]"
 				}`}
 				onClick={enabled ? () => WiiChannelHandler(id) : undefined}
 				onMouseEnter={handleMouseEnter}
@@ -75,9 +86,7 @@ export function WiiChannel({ id, enabled = false, mode = "widescreen", fsimg = f
 			</div>
 
 			{name && (
-				<div
-					className="absolute mt-5 top-full border-[#ccc] border-2 text-center bg-[#f0f0f0] rounded-full text-md text-[#444] shadow-sm z-10 chnHoverName whitespace-nowrap px-4"
-				>
+				<div className="absolute mt-5 top-full border-[#ccc] border-2 text-center bg-[#f0f0f0] rounded-full text-md text-[#444] shadow-sm z-10 chnHoverName whitespace-nowrap px-4">
 					{name}
 				</div>
 			)}

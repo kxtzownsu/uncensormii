@@ -14,16 +14,16 @@
 }
 
 .font-wiimain {
-  opacity: 1;
-  transition: opacity 0.5s ease;
+	opacity: 1;
+	transition: opacity 0.5s ease;
 }
 
 .font-wiimain.startFadeOut {
-  opacity: 0;
-  transition: none;
+	opacity: 0;
+	transition: none;
 }
 
 .font-wiimain.fade-out {
-  opacity: 1;
-  transition: opacity 0.5s ease;
+	opacity: 1;
+	transition: opacity 0.5s ease;
 }

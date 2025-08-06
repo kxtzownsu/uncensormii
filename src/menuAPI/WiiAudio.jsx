@@ -1,6 +1,12 @@
 import { useEffect } from "preact/hooks";
 
-export function wiiPlayAudio({ audioFile, volume = 0.5, loop = false, id, preload = true }) {
+export function wiiPlayAudio({
+	audioFile,
+	volume = 0.5,
+	loop = false,
+	id,
+	preload = true,
+}) {
 	if (!audioFile) return;
 
 	let audio;

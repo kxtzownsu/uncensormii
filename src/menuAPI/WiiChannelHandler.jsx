@@ -74,7 +74,7 @@ export function WiiChannelHandler(id) {
 		wiiStopAudio({ id: "bannerMusic" });
 
 		const mus = document.getElementById("wiiMenuMusic");
-		if ( mus ) {
+		if (mus) {
 			mus.play();
 		}
 

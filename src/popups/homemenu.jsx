@@ -5,19 +5,22 @@ import { WiiPlayAudio } from "../menuAPI/WiiAudio";
 export function HomeMenu() {
 	const [visible, setVisible] = useState(false);
 
+	// holy nesting
 	useEffect(() => {
 		const handler = (e) => {
-			if (e.metaKey && e.key === '`') {
-    setVisible(v => !v);
-}
+			if (e.metaKey && e.key === "`") {
+				if (localStorage.getItem("healthAndSafetyOpen") !== "true") {
+					setVisible((v) => !v);
+				}
+			}
 		};
 
 		// don't render home menu on health and safety page
-		if (localStorage.getItem("started") !== "true") return null;
+		if (localStorage.getItem("healthAndSafetyOpen") == "true") return null;
 
 		window.addEventListener("keydown", handler);
 		const mus = document.getElementById("wiiMenuMusic");
-		if ( mus ) {
+		if (mus) {
 			mus.pause();
 		}
 		return () => window.removeEventListener("keydown", handler);
@@ -25,14 +28,14 @@ export function HomeMenu() {
 
 	if (!visible) return null;
 
-	localStorage.setItem("homeMenuOpen", "true")
+	localStorage.setItem("homeMenuOpen", "true");
 
 	const close = () => {
-		const close = new Audio('/assets/nintendo/audio/wiimenu/NoA_HomeClose.wav');
+		const close = new Audio("/assets/nintendo/audio/wiimenu/NoA_HomeClose.wav");
 		close.play();
-		localStorage.setItem("homeMenuOpen", "false")
+		localStorage.setItem("homeMenuOpen", "false");
 		setVisible(false);
-	}
+	};
 
 	const returnToMenu = () => {
 		localStorage.setItem("returnToMenu", "true");

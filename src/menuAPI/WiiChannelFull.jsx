@@ -15,7 +15,7 @@ export function WiiChannelFull({ chn, mode }) {
 
 	const mus = document.getElementById("wiiMenuMusic");
 
-	if ( mus ) {
+	if (mus) {
 		mus.pause();
 	}
 

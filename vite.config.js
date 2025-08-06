@@ -22,6 +22,6 @@ export default defineConfig({
 	// so `pnpm dev` doesn't break
 	server: {
 		open: "/index.html",
-		allowedHosts: true
+		allowedHosts: true,
 	},
 });
