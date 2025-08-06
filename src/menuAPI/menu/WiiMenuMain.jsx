@@ -96,7 +96,11 @@ ZERO WARRANTY. USE AT YOUR OWN RISK.<br></br>
 		);
 	}
 
-	if (localStorage.getItem("homeMenuOpen") === "false") {
+	if (localStorage.getItem("inChannel") !== "true" && localStorage.getItem("inChannel") !== "false") {
+		localStorage.setItem("inChannel", "false");
+	}
+
+	if (localStorage.getItem("homeMenuOpen") === "false" && localStorage.getItem("inChannel") === "false") {
 		wiiPlayAudio({ audioFile: "/assets/nintendo/audio/wiimenu/NoA_startup.mp3", id: "wiiMenuStartup", preload: "true" });
 		wiiPlayAudio({ audioFile: "/assets/nintendo/audio/wiimenu/NoA_music.ogg", id: "wiiMenuMusic", loop: "true", preload: "true" });
 	}

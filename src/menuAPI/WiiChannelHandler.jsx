@@ -78,6 +78,8 @@ export function WiiChannelHandler(id) {
 			mus.play();
 		}
 
+		localStorage.setItem("inChannel", "false");
+
 		Object.assign(container.style, shrinkStyles);
 		container.getBoundingClientRect();
 		container.style.transform = "scale(0.01)";

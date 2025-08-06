@@ -19,6 +19,8 @@ export function WiiChannelFull({ chn, mode }) {
 		mus.pause();
 	}
 
+	localStorage.setItem("inChannel", "true");
+
 	return (
 		<div className="w-full h-full flex flex-col z-96">
 			<WiiPlayAudio

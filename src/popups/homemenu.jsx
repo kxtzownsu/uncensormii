@@ -33,7 +33,8 @@ export function HomeMenu() {
 
 	const returnToMenu = () => {
 		localStorage.setItem("returnToMenu", "true");
-		localStorage.setItem("homeMenuOpen", "false")
+		localStorage.setItem("homeMenuOpen", "false");
+		localStorage.setItem("inChannel", "false");
 		location.reload();
 	};
 
