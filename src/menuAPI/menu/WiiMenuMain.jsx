@@ -96,7 +96,7 @@ ZERO WARRANTY. USE AT YOUR OWN RISK.<br></br>
 		);
 	}
 
-	if (localStorage.getItem("homeMenuOpen") === "false") {
+	if (localStorage.getItem("homeMenuOpen") === "false" && ! document.getElementById("wiiMenuMusic")) { // generally we don't need to check for startup
 		wiiPlayAudio({ audioFile: "/assets/nintendo/audio/wiimenu/NoA_startup.mp3", id: "wiiMenuStartup", preload: "true" });
 		wiiPlayAudio({ audioFile: "/assets/nintendo/audio/wiimenu/NoA_music.ogg", id: "wiiMenuMusic", loop: "true", preload: "true" });
 	}
