@@ -12,6 +12,9 @@ export function HomeMenu() {
 }
 		};
 
+		// don't render home menu on health and safety page
+		if (localStorage.getItem("started") !== "true") return null;
+
 		window.addEventListener("keydown", handler);
 		const mus = document.getElementById("wiiMenuMusic");
 		if ( mus ) {
