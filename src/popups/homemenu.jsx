@@ -22,14 +22,18 @@ export function HomeMenu() {
 
 	if (!visible) return null;
 
+	localStorage.setItem("homeMenuOpen", "true")
+
 	const close = () => {
 		const close = new Audio('/assets/nintendo/audio/wiimenu/NoA_HomeClose.wav');
 		close.play();
+		localStorage.setItem("homeMenuOpen", "false")
 		setVisible(false);
 	}
 
 	const returnToMenu = () => {
 		localStorage.setItem("returnToMenu", "true");
+		localStorage.setItem("homeMenuOpen", "false")
 		location.reload();
 	};
 

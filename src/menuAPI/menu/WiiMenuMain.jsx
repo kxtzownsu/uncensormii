@@ -3,7 +3,8 @@ import { FaEnvelope } from "react-icons/fa";
 import { WiiChannel } from "../WiiChannel";
 import { WiiMenuFooterButton } from "./WiiMenuFooterButton";
 import { WiiMenuFooter } from "./WiiMenuFooter";
-import { WiiPlayAudio } from "..//WiiAudio";
+import { WiiPlayAudio } from "../WiiAudio";
+import { wiiPlayAudio } from "../WiiAudio";
 import { WiiClock } from "./WiiMenuClock";
 import { defaultChannels } from "../../global/defaultChannels";
 
@@ -95,20 +96,14 @@ ZERO WARRANTY. USE AT YOUR OWN RISK.<br></br>
 		);
 	}
 
+	if (localStorage.getItem("homeMenuOpen") === "false") {
+		wiiPlayAudio({ audioFile: "/assets/nintendo/audio/wiimenu/NoA_startup.mp3", id: "wiiMenuStartup", preload: "true" });
+		wiiPlayAudio({ audioFile: "/assets/nintendo/audio/wiimenu/NoA_music.ogg", id: "wiiMenuMusic", loop: "true", preload: "true" });
+	}
+
 	return (
 		<>
 			<wiichannelfswindow></wiichannelfswindow>
-			<WiiPlayAudio
-				audioFile="/assets/nintendo/audio/wiimenu/NoA_startup.mp3"
-				volume={1}
-				id="wiiMenuStartup"
-			/>
-			<WiiPlayAudio
-				audioFile="/assets/nintendo/audio/wiimenu/NoA_music.ogg"
-				volume={1}
-				loop={true}
-				id="wiiMenuMusic"
-			/>
 			{localStorage.setItem("returnToMenu", "false")}
 			{started && (
 				<div
